@@ -126,4 +126,37 @@ def game_hash
   }
 end
 
-# Write code here
+def num_points_scored(player_name)
+    player_stats_home = game_hash[:home][:players].find { |el| el[:player_name]== player_name}
+    player_stats_away = game_hash[:away][:players].find { |el| el[:player_name]== player_name}
+
+  if player_stats_home == nil
+    player_stats_away[:points]
+  else
+    player_stats_home[:points]
+  end
+end
+
+def shoe_size(player_name)
+    player_stats_home = game_hash[:home][:players].find { |el| el[:player_name]== player_name}
+    player_stats_away = game_hash[:away][:players].find { |el| el[:player_name]== player_name}
+
+  if player_stats_home == nil
+    player_stats_away[:shoe]
+  else
+    player_stats_home[:shoe]
+  end
+end
+
+def team_colors(team_name)
+  if team_name == "Charlotte Hornets" 
+    return game_hash[:away][:colors]
+  else return game_hash[:home][:colors]
+  end
+  
+def team_names(team_name)
+  #if team_names == "Charlotte Hornets" 
+    return game_hash[:away][:team_name]
+  else return game_hash[:home][:team_name]
+  end
+end
